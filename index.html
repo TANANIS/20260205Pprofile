@@ -1,0 +1,222 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tana — 工程履歷入口</title>
+  <meta name="description" content="Tana 的工程履歷入口：專案、經歷、聯絡方式。" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <a class="skip" href="#projects">跳到專案</a>
+
+  <header class="top">
+    <div class="container">
+      <div class="topbar">
+        <div class="badge" aria-label="狀態">
+          <span class="dot" aria-hidden="true"></span>
+          <span>Available</span>
+        </div>
+
+        <nav class="nav" aria-label="頁面導覽">
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+          <!-- 可選：放 PDF -->
+          <a class="nav-cta" href="./resume.pdf" target="_blank" rel="noopener">Resume PDF</a>
+        </nav>
+      </div>
+
+      <section class="hero" aria-label="首頁">
+        <p class="kicker">工程履歷入口 / Portfolio</p>
+
+        <h1 class="title">
+          <span class="name">Tana</span>
+          <span class="role">Software Engineer</span>
+        </h1>
+
+        <p class="lead">
+          以<span class="mark">結構清晰、可維運、可驗證</span>為優先，做 web 系統與個人專案（含遊戲）。
+          <br />
+          你可以先從 <a href="#projects">Projects</a> 開始看證據。
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn" href="#projects">看專案</a>
+          <a class="btn ghost" href="#contact">聯絡我</a>
+        </div>
+
+        <div class="meta">
+          <!-- 這行用來放「你現在做什麼」一句話，越務實越好 -->
+          <span class="pill">目前：Linux 維運 / 專案工程（可改）</span>
+          <span class="pill">地點：Taiwan</span>
+          <span class="pill">重點：結構 / 可讀性 / 交付</span>
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Evidence / Projects（最重要） -->
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <p class="section-desc">
+        只放最能代表你能力的 2–3 個。每個專案：一句話定位 + 3 個 bullet + 證據連結。
+      </p>
+
+      <ol class="cards">
+        <li class="card">
+          <div class="card-head">
+            <h3>Project Genesis — 2D 生存射擊原型（Godot / C#）</h3>
+            <div class="links">
+              <a href="#" target="_blank" rel="noopener">GitHub</a>
+              <a href="#" target="_blank" rel="noopener">Demo</a>
+              <a href="#" target="_blank" rel="noopener">Devlog</a>
+            </div>
+          </div>
+
+          <p class="one-liner">
+            以「責任邊界清楚」為核心，建立可擴充的戰鬥 / 生成節奏架構，讓數值與內容能持續迭代。
+          </p>
+
+          <ul>
+            <li>集中裁決：傷害判定集中化，避免多處狀態修改造成時靈時不靈。</li>
+            <li>節奏導演：以 Pressure → Director → Spawn 的單向資料流控制敵人生成與壓力曲線。</li>
+            <li>模組化玩家：移動 / 閃避 / 武器 / 血量拆分，降低耦合並提升可測性。</li>
+          </ul>
+
+          <details class="more">
+            <summary>我做了什麼（展開）</summary>
+            <div class="more-body">
+              <p>
+                <!-- 這裡放 4–8 行：你如何決策、如何排查 bug、如何驗證 -->
+                例：追查 EnemyHitbox → CombatSystem → PlayerHealth 全路徑，修正群組註冊生命週期，並建立集中 DebugSystem。
+              </p>
+            </div>
+          </details>
+        </li>
+
+        <li class="card">
+          <div class="card-head">
+            <h3>作品集網站 — 後台管理 / 標籤化分類（Laravel / SQLite）</h3>
+            <div class="links">
+              <a href="#" target="_blank" rel="noopener">Live</a>
+              <a href="#" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+          <p class="one-liner">
+            部署可用的作品集網站，含登入後台、資料管理與分類標籤，重點在穩定部署與資料一致性。
+          </p>
+          <ul>
+            <li>完成部署與資料庫權限處理（SQLite / Render），確保登入與 CSS 正常。</li>
+            <li>分類改為後台管理的標籤選擇，避免自由輸入造成資料污染。</li>
+            <li>圖片/媒體策略：以 URL 儲存為主，降低上傳與儲存成本。</li>
+          </ul>
+        </li>
+
+        <li class="card">
+          <div class="card-head">
+            <h3>Web 翻新專案 — 舊 PHP Blade 整合新模板</h3>
+            <div class="links">
+              <a href="#" target="_blank" rel="noopener">Notes</a>
+            </div>
+          </div>
+          <p class="one-liner">
+            在不破壞既有商業邏輯下，替換前端結構與樣式，保留 Blade 功能並逐頁翻新。
+          </p>
+          <ul>
+            <li>保留登入狀態、分類、FAQ、購物車等核心 Blade 邏輯，僅換 HTML 結構。</li>
+            <li>逐頁改版：product list / detail / cart / checkout，維持 class 結構以匹配模板。</li>
+            <li>路徑策略統一，減少 static_url() 混用造成的資源錯誤。</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <!-- About（做事方式） -->
+    <section id="about" class="section">
+      <h2>About</h2>
+      <p class="section-desc">
+        這裡不是人生故事；只寫「你怎麼做決策、怎麼避免亂寫」。
+      </p>
+
+      <div class="prose">
+        <p>
+          我偏好把系統拆成清楚的責任邊界：誰能改狀態、誰只能發請求、誰負責裁決。
+          實作上會把資料流固定成單向，並建立可追蹤的 debug/驗證點，讓問題可以被定位而不是靠運氣。
+        </p>
+        <ul>
+          <li>擅長：結構拆分、除錯定位、把抽象規則落成可維護實作</li>
+          <li>目前重心：工程化的遊戲系統、web 後台與部署穩定性</li>
+          <li>在找：<!-- 明確填：例如 系統/後端/全端/遊戲工具鏈 -->（請填你要的職缺類型）</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Experience（給 HR 快速掃） -->
+    <section id="experience" class="section">
+      <h2>Experience</h2>
+      <p class="section-desc">保持短：角色 + 公司 + 一句話你做什麼。</p>
+
+      <ul class="timeline">
+        <li>
+          <div class="when">2024/11 — 2025/04</div>
+          <div class="what">
+            <strong>全端工程師</strong>｜恆源機電科技有限公司
+            <div class="desc">Web 功能開發、整合與維護（請換成更精準的一句）。</div>
+          </div>
+        </li>
+        <li>
+          <div class="when">2024/07 — 2024/11</div>
+          <div class="what">
+            <strong>資策會</strong>
+            <div class="desc">（請填一句你要讓人記住的成果。）</div>
+          </div>
+        </li>
+        <li>
+          <div class="when">2022/08 — 2023/12</div>
+          <div class="what">
+            <strong>網頁編輯 / 文字工作</strong>｜廣告行銷公關公司
+            <div class="desc">內容整理、頁面維護、基礎站務（請填精準版）。</div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Contact（降低聯絡成本） -->
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p class="section-desc">越短越好，直接可點。</p>
+
+      <div class="contact">
+        <div class="contact-row">
+          <span class="label">Email</span>
+          <a href="mailto:you@example.com">you@example.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="label">GitHub</span>
+          <a href="#" target="_blank" rel="noopener">https://github.com/yourname</a>
+        </div>
+        <div class="contact-row">
+          <span class="label">LinkedIn</span>
+          <a href="#" target="_blank" rel="noopener">https://linkedin.com/in/yourname</a>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <span>© <span id="y"></span> Tana</span>
+        <span class="sep">·</span>
+        <a href="#projects">Back to top</a>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    // 小工具：自動年份
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
