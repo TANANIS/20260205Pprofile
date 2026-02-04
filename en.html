@@ -1,20 +1,20 @@
-<!-- index.html -->
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tana — 個人履歷與作品集</title>
-  <meta name="description" content="Tana 的履歷與作品集：專案、經歷、技能與聯絡方式。" />
+  <title>Tana | Software Engineer Portfolio</title>
+  <meta name="description" content="Portfolio site for Tana, focused on game and web development projects." />
   <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
-  <a class="skip" href="#projects">跳到專案</a>
+  <a class="skip" href="#projects">Skip to projects</a>
 
   <div class="page-loader" id="page-loader" aria-hidden="true">
     <span class="spinner" aria-hidden="true"></span>
   </div>
+
   <header class="top">
     <div class="container">
             <div class="topbar">
@@ -24,24 +24,23 @@
             <span>Available</span>
           </div>
           <div class="lang-switch" aria-label="Language switch">
-            <a class="lang current" href="./index.html" hreflang="zh-Hant" lang="zh-Hant">中文</a>
+            <a class="lang" href="./index.html" hreflang="zh-Hant" lang="zh-Hant">中文</a>
             <span class="lang-sep" aria-hidden="true">|</span>
-            <a class="lang" href="./en.html" hreflang="en">EN</a>
+            <a class="lang current" href="./en.html" hreflang="en">EN</a>
           </div>
         </div>
 
-        <nav class="nav" aria-label="頁面導覽">
+        <nav class="nav" aria-label="Main navigation">
           <a href="#projects">Projects</a>
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
-          <!-- 可選：放 PDF -->
           <a class="nav-cta" href="./resume.pdf" target="_blank" rel="noopener">Resume PDF</a>
         </nav>
       </div>
 
-      <section class="hero" aria-label="首頁">
-        <p class="kicker">工程履歷入口 / Portfolio</p>
+      <section class="hero" aria-label="Introduction">
+        <p class="kicker">Software Engineer / Portfolio</p>
 
         <h1 class="title">
           <span class="name">Tana</span>
@@ -49,38 +48,36 @@
         </h1>
 
         <p class="lead">
-          以<span class="mark">結構清晰、可維運、可驗證</span>為優先，做 web 系統與個人專案（含遊戲）。
+          I build practical, maintainable software with a focus on gameplay systems and modern web development.
           <br />
-          你可以先從 <a href="#projects">Projects</a> 開始看證據。
+          Check out my <a href="#projects">Projects</a> below.
         </p>
 
         <div class="hero-actions">
-          <a class="btn" href="#projects">看專案</a>
-          <a class="btn ghost" href="#contact">聯絡我</a>
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
         </div>
 
         <div class="meta">
-          <!-- 這行用來放「你現在做什麼」一句話，越務實越好 -->
-          <span class="pill">目前：Linux 維運 / 專案工程（可改）</span>
-          <span class="pill">地點：Taiwan</span>
-          <span class="pill">重點：結構 / 可讀性 / 交付</span>
+          <span class="pill">Interest: Linux workflows / engineering productivity</span>
+          <span class="pill">Location: Taiwan</span>
+          <span class="pill">Tech: Game dev / Web / backend</span>
         </div>
       </section>
     </div>
   </header>
 
   <main class="container">
-    <!-- Evidence / Projects（最重要） -->
     <section id="projects" class="section">
       <h2>Projects</h2>
       <p class="section-desc">
-        只放最能代表你能力的 2–3 個。每個專案：一句話定位 + 3 個 bullet + 證據連結。
+        Selected work that highlights system design, implementation quality, and iteration through testing.
       </p>
 
       <ol class="cards">
         <li class="card">
           <div class="card-head">
-            <h3>Project Genesis — 2D 生存射擊原型（Godot / C#）</h3>
+            <h3>Project Genesis — 2D action game (Godot / C#)</h3>
             <div class="links">
               <a href="#" target="_blank" rel="noopener">GitHub</a>
               <a href="#" target="_blank" rel="noopener">Demo</a>
@@ -89,21 +86,20 @@
           </div>
 
           <p class="one-liner">
-            以「責任邊界清楚」為核心，建立可擴充的戰鬥 / 生成節奏架構，讓數值與內容能持續迭代。
+            Built a combat-focused prototype with reusable gameplay systems, configurable enemy behavior, and cleaner debugging flow.
           </p>
 
           <ul>
-            <li>集中裁決：傷害判定集中化，避免多處狀態修改造成時靈時不靈。</li>
-            <li>節奏導演：以 Pressure → Director → Spawn 的單向資料流控制敵人生成與壓力曲線。</li>
-            <li>模組化玩家：移動 / 閃避 / 武器 / 血量拆分，降低耦合並提升可測性。</li>
+            <li>Implemented event-driven damage and health handling to reduce cross-system coupling.</li>
+            <li>Designed pressure-based enemy spawn pacing with a simple director model.</li>
+            <li>Refactored movement, attack, and hit reaction states to improve maintainability.</li>
           </ul>
 
           <details class="more">
-            <summary>我做了什麼（展開）</summary>
+            <summary>Read technical details</summary>
             <div class="more-body">
               <p>
-                <!-- 這裡放 4–8 行：你如何決策、如何排查 bug、如何驗證 -->
-                例：追查 EnemyHitbox → CombatSystem → PlayerHealth 全路徑，修正群組註冊生命週期，並建立集中 DebugSystem。
+                Split collision, combat, and player health responsibilities into dedicated scripts and introduced clearer debug logging for battle events.
               </p>
             </div>
           </details>
@@ -111,95 +107,91 @@
 
         <li class="card">
           <div class="card-head">
-            <h3>作品集網站 — 後台管理 / 標籤化分類（Laravel / SQLite）</h3>
+            <h3>Content management dashboard (Laravel / SQLite)</h3>
             <div class="links">
               <a href="#" target="_blank" rel="noopener">Live</a>
               <a href="#" target="_blank" rel="noopener">GitHub</a>
             </div>
           </div>
           <p class="one-liner">
-            部署可用的作品集網站，含登入後台、資料管理與分類標籤，重點在穩定部署與資料一致性。
+            Developed a lightweight admin system for structured content editing, role-based access, and consistent deployment setup.
           </p>
           <ul>
-            <li>完成部署與資料庫權限處理（SQLite / Render），確保登入與 CSS 正常。</li>
-            <li>分類改為後台管理的標籤選擇，避免自由輸入造成資料污染。</li>
-            <li>圖片/媒體策略：以 URL 儲存為主，降低上傳與儲存成本。</li>
+            <li>Set up local and cloud-ready environment with SQLite and Render-based deployment flow.</li>
+            <li>Built CRUD interfaces and validation for common content workflows.</li>
+            <li>Added route and URL handling improvements for cleaner integration and testing.</li>
           </ul>
         </li>
 
         <li class="card">
           <div class="card-head">
-            <h3>Web 翻新專案 — 舊 PHP Blade 整合新模板</h3>
+            <h3>Web component practice — PHP Blade templates</h3>
             <div class="links">
               <a href="#" target="_blank" rel="noopener">Notes</a>
             </div>
           </div>
           <p class="one-liner">
-            在不破壞既有商業邏輯下，替換前端結構與樣式，保留 Blade 功能並逐頁翻新。
+            Practiced turning repeated UI blocks into reusable Blade components for faster page building and cleaner markup.
           </p>
           <ul>
-            <li>保留登入狀態、分類、FAQ、購物車等核心 Blade 邏輯，僅換 HTML 結構。</li>
-            <li>逐頁改版：product list / detail / cart / checkout，維持 class 結構以匹配模板。</li>
-            <li>路徑策略統一，減少 static_url() 混用造成的資源錯誤。</li>
+            <li>Converted repeated FAQ and list sections from raw HTML into Blade components.</li>
+            <li>Created reusable product list/detail/cart/checkout component patterns.</li>
+            <li>Improved static asset references to make local development more predictable.</li>
           </ul>
         </li>
       </ol>
     </section>
 
-    <!-- About（做事方式） -->
     <section id="about" class="section">
       <h2>About</h2>
       <p class="section-desc">
-        這裡不是人生故事；只寫「你怎麼做決策、怎麼避免亂寫」。
+        I value clear architecture, measurable progress, and software that is easy to maintain over time.
       </p>
 
       <div class="prose">
         <p>
-          我偏好把系統拆成清楚的責任邊界：誰能改狀態、誰只能發請求、誰負責裁決。
-          實作上會把資料流固定成單向，並建立可追蹤的 debug/驗證點，讓問題可以被定位而不是靠運氣。
+          My recent work focuses on gameplay programming and web engineering. I enjoy breaking complex features into testable parts, then refining reliability and developer experience through debugging and iteration.
         </p>
         <ul>
-          <li>擅長：結構拆分、除錯定位、把抽象規則落成可維護實作</li>
-          <li>目前重心：工程化的遊戲系統、web 後台與部署穩定性</li>
-          <li>在找：<!-- 明確填：例如 系統/後端/全端/遊戲工具鏈 -->（請填你要的職缺類型）</li>
+          <li>I work with a system-first mindset and document design choices when they affect future changes.</li>
+          <li>I care about practical engineering outcomes: code quality, delivery pace, and user value.</li>
+          <li>I keep learning through hands-on projects in game and web stacks.</li>
         </ul>
       </div>
     </section>
 
-    <!-- Experience（給 HR 快速掃） -->
     <section id="experience" class="section">
       <h2>Experience</h2>
-      <p class="section-desc">保持短：角色 + 公司 + 一句話你做什麼。</p>
+      <p class="section-desc">Recent timeline of projects, training, and technical practice.</p>
 
       <ul class="timeline">
         <li>
           <div class="when">2024/11 — 2025/04</div>
           <div class="what">
-            <strong>全端工程師</strong>｜恆源機電科技有限公司
-            <div class="desc">Web 功能開發、整合與維護（請換成更精準的一句）。</div>
+            <strong>Portfolio and project development</strong> with focused implementation practice
+            <div class="desc">Built web and game project samples, iterated architecture, and documented decisions.</div>
           </div>
         </li>
         <li>
           <div class="when">2024/07 — 2024/11</div>
           <div class="what">
-            <strong>資策會</strong>
-            <div class="desc">（請填一句你要讓人記住的成果。）</div>
+            <strong>Technical self-study</strong>
+            <div class="desc">Studied frameworks and backend fundamentals through guided exercises and mini-projects.</div>
           </div>
         </li>
         <li>
           <div class="when">2022/08 — 2023/12</div>
           <div class="what">
-            <strong>網頁編輯 / 文字工作</strong>｜廣告行銷公關公司
-            <div class="desc">內容整理、頁面維護、基礎站務（請填精準版）。</div>
+            <strong>Customer-facing operations / cross-functional support</strong>
+            <div class="desc">Handled process-heavy tasks and collaboration, then transitioned toward software development.</div>
           </div>
         </li>
       </ul>
     </section>
 
-    <!-- Contact（降低聯絡成本） -->
     <section id="contact" class="section">
       <h2>Contact</h2>
-      <p class="section-desc">越短越好，直接可點。</p>
+      <p class="section-desc">Open to collaboration and new opportunities.</p>
 
       <div class="contact">
         <div class="contact-row">
@@ -217,7 +209,7 @@
       </div>
 
       <footer class="footer">
-        <span>© <span id="y"></span> Tana</span>
+        <span>&copy; <span id="y"></span> Tana</span>
         <span class="sep">·</span>
         <a href="#projects">Back to top</a>
       </footer>
