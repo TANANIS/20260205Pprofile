@@ -1,13 +1,13 @@
-/* style.css */
+﻿/* style.css */
 :root{
-  --bg: #f6f2ea;          /* 近紙色 */
-  --fg: #1a1a1a;          /* 主文字 */
-  --muted: #5a5a5a;       /* 次文字 */
+  --bg: #f6f2ea;          /* 餈???*/
+  --fg: #1a1a1a;          /* 銝餅?摮?*/
+  --muted: #5a5a5a;       /* 甈⊥?摮?*/
   --line: rgba(0,0,0,.10);
-  --mark: rgba(255, 230, 120, .85); /* marker 高亮 */
+  --mark: rgba(255, 230, 120, .85); /* marker 擃漁 */
   --accent: #2a2a2a;
   --radius: 14px;
-  --w: 700px;             /* 內容欄寬 */
+  --w: 960px;             /* ?批捆甈祝 */
 }
 
 *{ box-sizing: border-box; }
@@ -41,9 +41,9 @@ a:hover{ opacity: .85; }
 .skip:focus{ left: 12px; z-index: 99; }
 
 .container{
-  max-width: var(--w);
+  max-width: min(var(--w), calc(100vw - 40px));
   margin: 0 auto;
-  padding: 0 22px;
+  padding: 0 20px;
 }
 
 /* Top */
@@ -169,18 +169,10 @@ body.is-loading .lang-switch{
   transform: scale(.97);
   opacity: .85;
 }
-@keyframes spin{
-  to{ transform: rotate(360deg); }
-}
 
-@media (min-width: 641px){
-  .lang-switch{
-    position: fixed;
-    top: 16px;
-    right: 22px;
-    z-index: 130;
-    background: rgba(255,255,255,.78);
-    backdrop-filter: blur(6px);
+@media (min-width: 1280px){
+  :root{
+    --w: 1080px;
   }
 }
 
@@ -392,13 +384,47 @@ body.is-loading .lang-switch{
 }
 .sep{ opacity: .6; }
 
+.lang-fab{
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--fg);
+  background: rgba(255,255,255,.92);
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 24px rgba(0,0,0,.15);
+  z-index: 140;
+  transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+}
+.lang-fab:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(0,0,0,.2);
+  opacity: 1;
+}
+body.is-loading .lang-fab{
+  transform: scale(.95);
+  opacity: .82;
+}
+
+@media (min-width: 641px){
+  .lang-fab{ display: none; }
+}
+
 /* Responsive */
 @media (max-width: 640px){
+  .container{ padding: 0 16px; }
   .topbar{ align-items: flex-start; }
   .top-left{ width: 100%; }
-  .lang-switch{
-    position: static;
-  }
+  .lang-switch{ display: none; }
+  .lang-fab{ display: grid; }
   .nav{
     width: 100%;
     justify-content: flex-start;
@@ -410,3 +436,7 @@ body.is-loading .lang-switch{
   .timeline li{ grid-template-columns: 1fr; }
   .contact-row{ grid-template-columns: 1fr; }
 }
+
+
+
+

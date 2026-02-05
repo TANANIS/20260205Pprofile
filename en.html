@@ -1,237 +1,324 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tana | Software Engineer Portfolio</title>
-  <meta name="description" content="Portfolio site for Tana, focused on game and web development projects." />
-  <link rel="stylesheet" href="./style.css" />
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tana | Software Engineer Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio site for Tana, focused on game and web development projects."
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-<body>
-  <a class="skip" href="#projects">Skip to projects</a>
+  <body>
+    <a class="skip" href="#projects">Skip to projects</a>
 
-  <div class="page-loader" id="page-loader" aria-hidden="true">
-    <span class="spinner" aria-hidden="true"></span>
-  </div>
+    <div class="page-loader" id="page-loader" aria-hidden="true">
+      <span class="spinner" aria-hidden="true"></span>
+    </div>
 
-  <header class="top">
-    <div class="container">
-            <div class="topbar">
-        <div class="top-left">
-          <div class="badge" aria-label="Current status">
-            <span class="dot" aria-hidden="true"></span>
-            <span>Available</span>
+    <header class="top">
+      <div class="container">
+        <div class="topbar">
+          <div class="top-left">
+            <div class="badge" aria-label="Current status">
+              <span class="dot" aria-hidden="true"></span>
+              <span>Available</span>
+            </div>
           </div>
-          <div class="lang-switch" aria-label="Language switch">
-            <a class="lang" href="./index.html" hreflang="zh-Hant" lang="zh-Hant">中文</a>
-            <span class="lang-sep" aria-hidden="true">|</span>
-            <a class="lang current" href="./en.html" hreflang="en">EN</a>
-          </div>
+          <nav class="nav" aria-label="Main navigation">
+            <div class="lang-switch" aria-label="Language switch">
+              <a
+                class="lang"
+                href="./index.html"
+                hreflang="zh-Hant"
+                lang="zh-Hant"
+                >中文</a
+              >
+              <span class="lang-sep" aria-hidden="true">|</span>
+              <a class="lang current" href="./en.html" hreflang="en">EN</a>
+            </div>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+            <a
+              class="nav-cta"
+              href="./resume.pdf"
+              target="_blank"
+              rel="noopener"
+              >Resume PDF</a
+            >
+          </nav>
         </div>
 
-        <nav class="nav" aria-label="Main navigation">
-          <a href="#projects">Projects</a>
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-          <a class="nav-cta" href="./resume.pdf" target="_blank" rel="noopener">Resume PDF</a>
-        </nav>
+        <section class="hero" aria-label="Introduction">
+          <p class="kicker">Software Engineer / Portfolio</p>
+
+          <h1 class="title">
+            <span class="name">Tana</span>
+            <span class="role">Software Engineer</span>
+          </h1>
+
+          <p class="lead">
+            I build practical, maintainable software with a focus on gameplay
+            systems and modern web development.
+            <br />
+            Check out my <a href="#projects">Projects</a> below.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn ghost" href="#contact">Get in touch</a>
+          </div>
+
+          <div class="meta">
+            <span class="pill"
+              >Interest: Linux workflows / engineering productivity</span
+            >
+            <span class="pill">Location: Taiwan</span>
+            <span class="pill">Tech: Game dev / Web / backend</span>
+          </div>
+        </section>
       </div>
+    </header>
 
-      <section class="hero" aria-label="Introduction">
-        <p class="kicker">Software Engineer / Portfolio</p>
-
-        <h1 class="title">
-          <span class="name">Tana</span>
-          <span class="role">Software Engineer</span>
-        </h1>
-
-        <p class="lead">
-          I build practical, maintainable software with a focus on gameplay systems and modern web development.
-          <br />
-          Check out my <a href="#projects">Projects</a> below.
+    <main class="container">
+      <section id="projects" class="section">
+        <h2>Projects</h2>
+        <p class="section-desc">
+          Selected work that highlights system design, implementation quality,
+          and iteration through testing.
         </p>
 
-        <div class="hero-actions">
-          <a class="btn" href="#projects">View Projects</a>
-          <a class="btn ghost" href="#contact">Get in touch</a>
-        </div>
+        <ol class="cards">
+          <li class="card">
+            <div class="card-head">
+              <h3>Project Genesis — 2D action game (Godot / C#)</h3>
+              <div class="links">
+                <a href="#" target="_blank" rel="noopener">GitHub</a>
+                <a href="#" target="_blank" rel="noopener">Demo</a>
+                <a href="#" target="_blank" rel="noopener">Devlog</a>
+              </div>
+            </div>
 
-        <div class="meta">
-          <span class="pill">Interest: Linux workflows / engineering productivity</span>
-          <span class="pill">Location: Taiwan</span>
-          <span class="pill">Tech: Game dev / Web / backend</span>
+            <p class="one-liner">
+              Built a combat-focused prototype with reusable gameplay systems,
+              configurable enemy behavior, and cleaner debugging flow.
+            </p>
+
+            <ul>
+              <li>
+                Implemented event-driven damage and health handling to reduce
+                cross-system coupling.
+              </li>
+              <li>
+                Designed pressure-based enemy spawn pacing with a simple
+                director model.
+              </li>
+              <li>
+                Refactored movement, attack, and hit reaction states to improve
+                maintainability.
+              </li>
+            </ul>
+
+            <details class="more">
+              <summary>Read technical details</summary>
+              <div class="more-body">
+                <p>
+                  Split collision, combat, and player health responsibilities
+                  into dedicated scripts and introduced clearer debug logging
+                  for battle events.
+                </p>
+              </div>
+            </details>
+          </li>
+
+          <li class="card">
+            <div class="card-head">
+              <h3>Content management dashboard (Laravel / SQLite)</h3>
+              <div class="links">
+                <a href="#" target="_blank" rel="noopener">Live</a>
+                <a href="#" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+            <p class="one-liner">
+              Developed a lightweight admin system for structured content
+              editing, role-based access, and consistent deployment setup.
+            </p>
+            <ul>
+              <li>
+                Set up local and cloud-ready environment with SQLite and
+                Render-based deployment flow.
+              </li>
+              <li>
+                Built CRUD interfaces and validation for common content
+                workflows.
+              </li>
+              <li>
+                Added route and URL handling improvements for cleaner
+                integration and testing.
+              </li>
+            </ul>
+          </li>
+
+          <li class="card">
+            <div class="card-head">
+              <h3>Web component practice — PHP Blade templates</h3>
+              <div class="links">
+                <a href="#" target="_blank" rel="noopener">Notes</a>
+              </div>
+            </div>
+            <p class="one-liner">
+              Practiced turning repeated UI blocks into reusable Blade
+              components for faster page building and cleaner markup.
+            </p>
+            <ul>
+              <li>
+                Converted repeated FAQ and list sections from raw HTML into
+                Blade components.
+              </li>
+              <li>
+                Created reusable product list/detail/cart/checkout component
+                patterns.
+              </li>
+              <li>
+                Improved static asset references to make local development more
+                predictable.
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <section id="about" class="section">
+        <h2>About</h2>
+        <p class="section-desc">
+          I value clear architecture, measurable progress, and software that is
+          easy to maintain over time.
+        </p>
+
+        <div class="prose">
+          <p>
+            My recent work focuses on gameplay programming and web engineering.
+            I enjoy breaking complex features into testable parts, then refining
+            reliability and developer experience through debugging and
+            iteration.
+          </p>
+          <ul>
+            <li>
+              I work with a system-first mindset and document design choices
+              when they affect future changes.
+            </li>
+            <li>
+              I care about practical engineering outcomes: code quality,
+              delivery pace, and user value.
+            </li>
+            <li>
+              I keep learning through hands-on projects in game and web stacks.
+            </li>
+          </ul>
         </div>
       </section>
-    </div>
-  </header>
 
-  <main class="container">
-    <section id="projects" class="section">
-      <h2>Projects</h2>
-      <p class="section-desc">
-        Selected work that highlights system design, implementation quality, and iteration through testing.
-      </p>
-
-      <ol class="cards">
-        <li class="card">
-          <div class="card-head">
-            <h3>Project Genesis — 2D action game (Godot / C#)</h3>
-            <div class="links">
-              <a href="#" target="_blank" rel="noopener">GitHub</a>
-              <a href="#" target="_blank" rel="noopener">Demo</a>
-              <a href="#" target="_blank" rel="noopener">Devlog</a>
-            </div>
-          </div>
-
-          <p class="one-liner">
-            Built a combat-focused prototype with reusable gameplay systems, configurable enemy behavior, and cleaner debugging flow.
-          </p>
-
-          <ul>
-            <li>Implemented event-driven damage and health handling to reduce cross-system coupling.</li>
-            <li>Designed pressure-based enemy spawn pacing with a simple director model.</li>
-            <li>Refactored movement, attack, and hit reaction states to improve maintainability.</li>
-          </ul>
-
-          <details class="more">
-            <summary>Read technical details</summary>
-            <div class="more-body">
-              <p>
-                Split collision, combat, and player health responsibilities into dedicated scripts and introduced clearer debug logging for battle events.
-              </p>
-            </div>
-          </details>
-        </li>
-
-        <li class="card">
-          <div class="card-head">
-            <h3>Content management dashboard (Laravel / SQLite)</h3>
-            <div class="links">
-              <a href="#" target="_blank" rel="noopener">Live</a>
-              <a href="#" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </div>
-          <p class="one-liner">
-            Developed a lightweight admin system for structured content editing, role-based access, and consistent deployment setup.
-          </p>
-          <ul>
-            <li>Set up local and cloud-ready environment with SQLite and Render-based deployment flow.</li>
-            <li>Built CRUD interfaces and validation for common content workflows.</li>
-            <li>Added route and URL handling improvements for cleaner integration and testing.</li>
-          </ul>
-        </li>
-
-        <li class="card">
-          <div class="card-head">
-            <h3>Web component practice — PHP Blade templates</h3>
-            <div class="links">
-              <a href="#" target="_blank" rel="noopener">Notes</a>
-            </div>
-          </div>
-          <p class="one-liner">
-            Practiced turning repeated UI blocks into reusable Blade components for faster page building and cleaner markup.
-          </p>
-          <ul>
-            <li>Converted repeated FAQ and list sections from raw HTML into Blade components.</li>
-            <li>Created reusable product list/detail/cart/checkout component patterns.</li>
-            <li>Improved static asset references to make local development more predictable.</li>
-          </ul>
-        </li>
-      </ol>
-    </section>
-
-    <section id="about" class="section">
-      <h2>About</h2>
-      <p class="section-desc">
-        I value clear architecture, measurable progress, and software that is easy to maintain over time.
-      </p>
-
-      <div class="prose">
-        <p>
-          My recent work focuses on gameplay programming and web engineering. I enjoy breaking complex features into testable parts, then refining reliability and developer experience through debugging and iteration.
+      <section id="experience" class="section">
+        <h2>Experience</h2>
+        <p class="section-desc">
+          Recent timeline of projects, training, and technical practice.
         </p>
-        <ul>
-          <li>I work with a system-first mindset and document design choices when they affect future changes.</li>
-          <li>I care about practical engineering outcomes: code quality, delivery pace, and user value.</li>
-          <li>I keep learning through hands-on projects in game and web stacks.</li>
+
+        <ul class="timeline">
+          <li>
+            <div class="when">2024/11 — 2025/04</div>
+            <div class="what">
+              <strong>Portfolio and project development</strong> with focused
+              implementation practice
+              <div class="desc">
+                Built web and game project samples, iterated architecture, and
+                documented decisions.
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="when">2024/07 — 2024/11</div>
+            <div class="what">
+              <strong>Technical self-study</strong>
+              <div class="desc">
+                Studied frameworks and backend fundamentals through guided
+                exercises and mini-projects.
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="when">2022/08 — 2023/12</div>
+            <div class="what">
+              <strong
+                >Customer-facing operations / cross-functional support</strong
+              >
+              <div class="desc">
+                Handled process-heavy tasks and collaboration, then transitioned
+                toward software development.
+              </div>
+            </div>
+          </li>
         </ul>
-      </div>
-    </section>
+      </section>
 
-    <section id="experience" class="section">
-      <h2>Experience</h2>
-      <p class="section-desc">Recent timeline of projects, training, and technical practice.</p>
+      <section id="contact" class="section">
+        <h2>Contact</h2>
+        <p class="section-desc">Open to collaboration and new opportunities.</p>
 
-      <ul class="timeline">
-        <li>
-          <div class="when">2024/11 — 2025/04</div>
-          <div class="what">
-            <strong>Portfolio and project development</strong> with focused implementation practice
-            <div class="desc">Built web and game project samples, iterated architecture, and documented decisions.</div>
+        <div class="contact">
+          <div class="contact-row">
+            <span class="label">Email</span>
+            <a href="mailto:you@example.com">you@example.com</a>
           </div>
-        </li>
-        <li>
-          <div class="when">2024/07 — 2024/11</div>
-          <div class="what">
-            <strong>Technical self-study</strong>
-            <div class="desc">Studied frameworks and backend fundamentals through guided exercises and mini-projects.</div>
+          <div class="contact-row">
+            <span class="label">GitHub</span>
+            <a href="#" target="_blank" rel="noopener"
+              >https://github.com/yourname</a
+            >
           </div>
-        </li>
-        <li>
-          <div class="when">2022/08 — 2023/12</div>
-          <div class="what">
-            <strong>Customer-facing operations / cross-functional support</strong>
-            <div class="desc">Handled process-heavy tasks and collaboration, then transitioned toward software development.</div>
+          <div class="contact-row">
+            <span class="label">LinkedIn</span>
+            <a href="#" target="_blank" rel="noopener"
+              >https://linkedin.com/in/yourname</a
+            >
           </div>
-        </li>
-      </ul>
-    </section>
-
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <p class="section-desc">Open to collaboration and new opportunities.</p>
-
-      <div class="contact">
-        <div class="contact-row">
-          <span class="label">Email</span>
-          <a href="mailto:you@example.com">you@example.com</a>
         </div>
-        <div class="contact-row">
-          <span class="label">GitHub</span>
-          <a href="#" target="_blank" rel="noopener">https://github.com/yourname</a>
-        </div>
-        <div class="contact-row">
-          <span class="label">LinkedIn</span>
-          <a href="#" target="_blank" rel="noopener">https://linkedin.com/in/yourname</a>
-        </div>
-      </div>
 
-      <footer class="footer">
-        <span>&copy; <span id="y"></span> Tana</span>
-        <span class="sep">·</span>
-        <a href="#projects">Back to top</a>
-      </footer>
-    </section>
-  </main>
+        <footer class="footer">
+          <span>&copy; <span id="y"></span> Tana</span>
+          <span class="sep">·</span>
+          <a href="#projects">Back to top</a>
+        </footer>
+      </section>
+    </main>
+    <a
+      class="lang-fab lang"
+      href="./index.html"
+      hreflang="zh-Hant"
+      aria-label="Switch to Chinese"
+      >ZH</a
+    >
 
     <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+      document.getElementById("y").textContent = new Date().getFullYear();
 
-    (function () {
-      var loader = document.getElementById('page-loader');
-      var links = document.querySelectorAll('a.lang[href]');
+      (function () {
+        var loader = document.getElementById("page-loader");
+        var links = document.querySelectorAll("a.lang[href]");
 
-      links.forEach(function (link) {
-        if (link.classList.contains('current')) return;
-        link.addEventListener('click', function () {
-          if (!loader) return;
-          loader.classList.add('is-visible');
-          document.body.classList.add('is-loading');
+        links.forEach(function (link) {
+          if (link.classList.contains("current")) return;
+          link.addEventListener("click", function () {
+            if (!loader) return;
+            loader.classList.add("is-visible");
+            document.body.classList.add("is-loading");
+          });
         });
-      });
-    })();
-  </script>
-</body>
+      })();
+    </script>
+  </body>
 </html>
