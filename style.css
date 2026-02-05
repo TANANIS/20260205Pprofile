@@ -422,81 +422,97 @@ body.is-loading .lang-switch{
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 .timeline > li{
   display: grid;
   grid-template-columns: 150px 1fr;
-  gap: 14px;
-  padding: 10px 0;
-  border-top: 1px dashed rgba(0,0,0,.10);
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(0,0,0,.08);
 }
 .timeline > li:first-child{
   border-top: 0;
-  padding-top: 2px;
+  padding-top: 4px;
 }
 .when{
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   color: var(--muted);
-  font-size: 12px;
-  letter-spacing: .05em;
+  font-size: 11px;
+  letter-spacing: .04em;
   text-transform: uppercase;
-  padding-top: 8px;
+  opacity: .88;
+  padding-top: 6px;
 }
 .what{
-  position: relative;
-  padding: 10px 120px 10px 0;
+  padding: 0;
 }
 .what strong{
   display: block;
-  font-size: 17px;
+  font-size: 30px;
   line-height: 1.35;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
+  color: var(--fg);
 }
 .desc{
   color: var(--muted);
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 13px;
-  margin-top: 6px;
+  margin-top: 8px;
   line-height: 1.6;
 }
 .timeline .more{
-  position: absolute;
-  top: 8px;
-  right: 0;
-  margin: 0;
+  margin-top: 8px;
 }
 .timeline .more summary{
+  float: right;
   display: inline-flex;
   align-items: center;
-  padding: 4px 9px;
+  white-space: nowrap;
+  padding: 2px 8px;
   border-radius: 999px;
-  border: 1px solid rgba(0,0,0,.12);
-  background: rgba(255,255,255,.36);
-  font-size: 12px;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.28);
+  font-size: 11px;
+  line-height: 1.25;
   color: var(--muted);
+  opacity: .85;
 }
 .timeline .more[open] summary{
-  background: rgba(255,255,255,.68);
+  background: rgba(255,255,255,.46);
   color: var(--fg);
+  opacity: 1;
+}
+.timeline .more::after{
+  content: "";
+  display: block;
+  clear: both;
 }
 .timeline .more .more-body{
-  margin-top: 12px;
-  padding: 10px 12px 10px;
-  border: 1px dashed rgba(0,0,0,.14);
-  border-radius: 10px;
-  background: rgba(255,255,255,.30);
-  width: min(680px, 100%);
-  margin-left: auto;
+  margin-top: 8px;
+  padding: 6px 0 0 12px;
+  border-left: 2px solid rgba(0,0,0,.10);
+  background: transparent;
 }
 .timeline .more > ul{
-  margin: 12px 0 0;
-  padding: 10px 12px 10px 18px;
-  border: 1px dashed rgba(0,0,0,.14);
-  border-radius: 10px;
-  background: rgba(255,255,255,.30);
-  width: min(680px, 100%);
-  margin-left: auto;
+  margin: 8px 0 0;
+  padding: 6px 0 0 18px;
+  border-left: 2px solid rgba(0,0,0,.10);
+  background: transparent;
+}
+.timeline .more[open] > ul,
+.timeline .more[open] .more-body{
+  animation: details-reveal .6s cubic-bezier(.22,.76,.19,1);
+}
+@keyframes details-reveal{
+  from{
+    opacity: .0;
+    transform: translateY(-8px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .timeline .more .more-body ul{
   margin: 0;
@@ -505,10 +521,10 @@ body.is-loading .lang-switch{
 .timeline .more > ul li,
 .timeline .more .more-body li{
   display: list-item;
-  margin: 0 0 5px;
-  color: var(--accent);
-  font-size: 13px;
-  line-height: 1.6;
+  margin: 0 0 4px;
+  color: rgba(26,26,26,.86);
+  font-size: 12px;
+  line-height: 1.55;
   writing-mode: horizontal-tb;
 }
 .timeline .more > ul li:last-child,
@@ -628,19 +644,17 @@ body.is-loading .lang-fab{
     padding-right: 0;
   }
   .timeline .more{
-    position: static;
-    margin-top: 8px;
+    margin-top: 6px;
   }
   .timeline .more summary{
-    margin-left: auto;
+    float: none;
+    margin-left: 0;
   }
   .timeline .more .more-body{
-    width: 100%;
-    margin-left: 0;
+    margin-top: 8px;
   }
   .timeline .more > ul{
-    width: 100%;
-    margin-left: 0;
+    margin-top: 8px;
   }
   .contact-row{ grid-template-columns: 1fr; }
 }
