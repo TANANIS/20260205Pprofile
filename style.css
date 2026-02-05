@@ -325,14 +325,46 @@ body.is-loading .lang-switch{
   display: flex;
   gap: 12px;
 }
+.carousel-item{
+  position: relative;
+  margin: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
 .bg-carousel-group img{
   width: 208px;
   aspect-ratio: 16 / 9;
   display: block;
-  border-radius: 8px;
   object-fit: cover;
   opacity: .72;
   filter: saturate(.8) contrast(.92);
+  transition: transform .22s ease, opacity .22s ease, filter .22s ease;
+}
+.carousel-item:hover img{
+  transform: scale(1.045);
+  opacity: .9;
+  filter: saturate(.9) contrast(.98);
+}
+.carousel-caption{
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  margin: 0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 11px;
+  line-height: 1.2;
+  color: rgba(255,255,255,.94);
+  background: rgba(55,55,55,.62);
+  opacity: 0;
+  transform: translateY(3px);
+  transition: opacity .2s ease, transform .2s ease;
+  pointer-events: none;
+}
+.carousel-item:hover .carousel-caption{
+  opacity: 1;
+  transform: translateY(0);
 }
 @keyframes bg-slide{
   from{ transform: translateX(0); }
@@ -616,6 +648,11 @@ body.is-loading .lang-fab{
     line-height: 1.02;
   }
   .bg-carousel-group img{ width: 156px; }
+  .carousel-caption{
+    font-size: 10px;
+    bottom: 6px;
+    left: 6px;
+  }
   .topbar{ align-items: flex-start; }
   .top-left{ width: 100%; }
   .lang-switch{ display: none; }
