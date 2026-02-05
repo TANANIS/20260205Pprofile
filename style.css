@@ -79,6 +79,9 @@ a:hover{ opacity: .85; }
   font-size: 13px;
   color: var(--muted);
 }
+.mobile-badge{
+  display: none;
+}
 .dot{
   width: 8px; height: 8px;
   border-radius: 999px;
@@ -508,6 +511,14 @@ body.is-loading .lang-fab{
 /* Responsive */
 @media (max-width: 640px){
   .container{ padding: 0 16px; }
+  .topbar .badge{ display: none; }
+  .mobile-badge{
+    display: inline-flex;
+    position: absolute;
+    right: 0;
+    top: 58px;
+    z-index: 3;
+  }
   .headline{
     top: 12px;
     right: 12px;
