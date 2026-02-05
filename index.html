@@ -186,30 +186,34 @@
         <ol class="cards">
           <li class="card">
             <div class="card-head">
-              <h3>Project Genesis — 2D 生存射擊原型（Godot / C#）</h3>
+              <h3>Project Genesis — 2D 倖存者生存射擊原型（Godot / C#）</h3>
               <div class="links">
-                <a href="#" target="_blank" rel="noopener">GitHub</a>
-                <a href="#" target="_blank" rel="noopener">Demo</a>
-                <a href="#" target="_blank" rel="noopener">Devlog</a>
+                <a href="#" target="_blank" rel="https://github.com/TANANIS/Balls">GitHub</a>
+                <a href="#" target="_blank" rel="https://tananis.itch.io/project-genesis">Demo</a>
+                <a href="#" target="_blank" rel="https://www.notion.so/2-4-2fc0a9cc60d5805799b9ff529a56f252?source=copy_link">Devlog</a>
               </div>
             </div>
 
             <p class="one-liner">
-              以「責任邊界清楚」為核心，建立可擴充的戰鬥 /
-              生成節奏架構，讓數值與內容能持續迭代。
+              從一開始就把戰鬥、生成和狀態拆開處理，三個系統各自單純、但能互相配合，
+              讓後面加敵人、武器或數值時，不用一直回頭修舊東西。
             </p>
 
             <ul>
               <li>
-                集中裁決：傷害判定集中化，避免多處狀態修改造成時靈時不靈。
+                <strong>戰鬥裁決收斂到一處：</strong>
+                傷害與狀態判定集中在 CombatSystem，其他模組只送「請求」，
+                避免多點同時改血量／無敵／死亡造成行為不一致。
               </li>
               <li>
-                節奏導演：以 Pressure → Director → Spawn
-                的單向資料流控制敵人生成與壓力曲線。
+                <strong>節奏由「導演」控制：</strong>
+                PressureSystem 只產生壓力狀態，Director 把狀態轉成生成策略，
+                SpawnSystem 只負責「何時／哪裡／生什麼」，資料流單向、好追問題。
               </li>
               <li>
-                模組化玩家：移動 / 閃避 / 武器 /
-                血量拆分，降低耦合並提升可測性。
+                <strong>玩家拆成可替換模組：</strong>
+                移動、Dash、武器、血量各自獨立，調整手感或加新能力時，
+                不會牽一髮動全身。
               </li>
             </ul>
 
@@ -217,9 +221,12 @@
               <summary>查看細節</summary>
               <div class="more-body">
                 <p>
-                  <!-- 這裡放 4–8 行：你如何決策、如何排查 bug、如何驗證 -->
-                  例：追查 EnemyHitbox → CombatSystem → PlayerHealth
-                  全路徑，修正群組註冊生命週期，並建立集中 DebugSystem。
+                  開發中遇到過「敵人接觸玩家但傷害時靈時不靈」的狀況， 從
+                  EnemyHitbox → CombatSystem → PlayerHealth 全路徑追 log，
+                  最後定位到群組註冊／初始化時機不一致。
+                  修正生命週期後，再用集中式 DebugSystem
+                  驗證每次傷害請求都有進裁決流程，
+                  讓後續調整數值與節奏時能穩定回歸。
                 </p>
               </div>
             </details>
@@ -260,25 +267,32 @@
 
           <li class="card">
             <div class="card-head">
-              <h3>Web 翻新專案 — 舊 PHP Blade 整合新模板</h3>
+              <h3>Coffee 專案 — 商用後台與前台系統</h3>
               <div class="links">
-                <a href="#" target="_blank" rel="noopener">Notes</a>
+                <a
+                  href="https://github.com/TANANIS/CoffeeProject"
+                  target="_blank"
+                  rel="noopener"
+                  >Frontend</a
+                >
+                <a
+                  href="https://github.com/TANANIS/CoffeeBackEnd"
+                  target="_blank"
+                  rel="noopener"
+                  >Backend</a
+                >
               </div>
             </div>
+
             <p class="one-liner">
-              在不破壞既有商業邏輯下，替換前端結構與樣式，保留 Blade
-              功能並逐頁翻新。
+              實際跑過營運流程的咖啡電商專案，包含前台下單與後台管理，
+              重點放在流程清楚、資料一致、後續好維護。
             </p>
+
             <ul>
-              <li>
-                保留登入狀態、分類、FAQ、購物車等核心 Blade 邏輯，僅換 HTML
-                結構。
-              </li>
-              <li>
-                逐頁改版：product list / detail / cart / checkout，維持 class
-                結構以匹配模板。
-              </li>
-              <li>路徑策略統一，減少 static_url() 混用造成的資源錯誤。</li>
+              <li>前後台分離，商業邏輯集中在後台處理。</li>
+              <li>後台圍繞商品、訂單與營運流程設計，而不是單純 CRUD。</li>
+              <li>資料結構先行，避免功能增加後反覆修資料。</li>
             </ul>
           </li>
         </ol>

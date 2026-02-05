@@ -438,6 +438,30 @@ body.is-loading .lang-switch{
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   color: var(--muted);
 }
+.cards .more summary{
+  float: right;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.28);
+  font-size: 11px;
+  line-height: 1.25;
+  color: var(--muted);
+  opacity: .85;
+}
+.cards .more[open] summary{
+  background: rgba(255,255,255,.46);
+  color: var(--fg);
+  opacity: 1;
+}
+.cards .more::after{
+  content: "";
+  display: block;
+  clear: both;
+}
 .more-body{
   margin-top: 8px;
   color: var(--fg);
