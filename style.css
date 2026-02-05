@@ -401,6 +401,7 @@ body.is-loading .lang-switch{
 }
 .stack-stage{
   position: relative;
+  --stack-shift-x: -10%;
   min-height: clamp(260px, 33vw, 430px);
   aspect-ratio: 30 / 9;
   border: 0;
@@ -433,7 +434,7 @@ body.is-loading .lang-switch{
 .stack-note{
   position: absolute;
   top: var(--top, 0%);
-  left: var(--left, 0%);
+  left: calc(var(--left, 0%) + var(--stack-shift-x));
   width: clamp(128px, var(--w, 13vw), 240px);
   padding: 11px 12px 12px;
   border: 1px solid var(--note-line, rgba(0,0,0,.14));
@@ -449,7 +450,11 @@ body.is-loading .lang-switch{
   animation-delay: var(--delay, 0s), calc(var(--delay, 0s) + .86s);
   animation-fill-mode: both, both;
   animation-iteration-count: 1, infinite;
+  animation-play-state: paused, paused;
   z-index: var(--z, 6);
+}
+.stack-showcase.is-inview .stack-note{
+  animation-play-state: running, running;
 }
 .stack-note::before{
   content: "";
@@ -896,6 +901,7 @@ body.is-loading .lang-fab{
     padding: 0 6px;
   }
   .stack-stage{
+    --stack-shift-x: 0%;
     aspect-ratio: auto;
     min-height: auto;
     display: grid;

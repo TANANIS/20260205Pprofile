@@ -16,6 +16,24 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   var headline = document.querySelector(".headline");
+  var stackShowcase = document.querySelector(".stack-showcase");
+  if (stackShowcase) {
+    if ("IntersectionObserver" in window) {
+      var stackObserver = new IntersectionObserver(
+        function (entries, observer) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            stackShowcase.classList.add("is-inview");
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.2, rootMargin: "0px 0px -8% 0px" }
+      );
+      stackObserver.observe(stackShowcase);
+    } else {
+      stackShowcase.classList.add("is-inview");
+    }
+  }
   if (!headline) return;
 
   var ticking = false;
