@@ -53,36 +53,76 @@
           </nav>
         </div>
 
-        <section class="hero" aria-label="Introduction">
-          <p class="kicker">Software Engineer / Portfolio</p>
+        <section class="hero" aria-label="Home">
+          <p class="kicker">Resume & Portfolio</p>
 
           <h1 class="title">
             <span class="name">Tana</span>
             <span class="role">Software Engineer</span>
           </h1>
 
+          <p class="headline">
+            Build what survives<br />
+            systems that can be shipped and maintained
+          </p>
+
           <p class="lead">
-            I build practical, maintainable software with a focus on gameplay
-            systems and modern web development.
+            I turn requirements and ambiguity into
+            <span class="mark">clear, maintainable, and verifiable</span>
+            results, <br />covering web and backend systems, as well as personal
+            projects.
             <br />
-            Check out my <a href="#projects">Projects</a> below.
+            You can explore more in <a href="#projects">Projects</a>.
           </p>
 
           <div class="hero-actions">
             <a class="btn" href="#projects">View Projects</a>
-            <a class="btn ghost" href="#contact">Get in touch</a>
+            <a class="btn ghost" href="#contact">Contact Me</a>
           </div>
 
           <div class="meta">
-            <span class="pill"
-              >Interest: Linux workflows / engineering productivity</span
-            >
-            <span class="pill">Location: Taiwan</span>
-            <span class="pill">Tech: Game dev / Web / backend</span>
+            <div class="meta-row">
+              <span class="pill">Current: Linux Operations Engineer</span>
+              <span class="pill">Environment: Red Hat / RHCE</span>
+              <span class="pill"
+                >Work: System maintenance, troubleshooting, patching</span
+              >
+            </div>
+            <div class="meta-row">
+              <span class="pill muted"
+                >Previous: E-commerce and web system development (PHP)</span
+              >
+              <span class="pill muted"
+                >Personal projects: Games, tools, and small web systems</span
+              >
+            </div>
           </div>
         </section>
       </div>
     </header>
+
+    <section class="bg-carousel" aria-hidden="true">
+      <div class="container">
+        <div class="bg-carousel-viewport">
+          <div class="bg-carousel-track">
+            <div class="bg-carousel-group">
+              <img src="./assets/slide-1.svg" alt="" />
+              <img src="./assets/slide-2.svg" alt="" />
+              <img src="./assets/slide-3.svg" alt="" />
+              <img src="./assets/slide-4.svg" alt="" />
+              <img src="./assets/slide-5.svg" alt="" />
+            </div>
+            <div class="bg-carousel-group">
+              <img src="./assets/slide-1.svg" alt="" />
+              <img src="./assets/slide-2.svg" alt="" />
+              <img src="./assets/slide-3.svg" alt="" />
+              <img src="./assets/slide-4.svg" alt="" />
+              <img src="./assets/slide-5.svg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <main class="container">
       <section id="projects" class="section">
@@ -303,22 +343,6 @@
       >ZH</a
     >
 
-    <script>
-      document.getElementById("y").textContent = new Date().getFullYear();
-
-      (function () {
-        var loader = document.getElementById("page-loader");
-        var links = document.querySelectorAll("a.lang[href]");
-
-        links.forEach(function (link) {
-          if (link.classList.contains("current")) return;
-          link.addEventListener("click", function () {
-            if (!loader) return;
-            loader.classList.add("is-visible");
-            document.body.classList.add("is-loading");
-          });
-        });
-      })();
-    </script>
+    <script src="./main.js" defer></script>
   </body>
 </html>

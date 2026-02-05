@@ -34,7 +34,8 @@
                 href="./index.html"
                 hreflang="zh-Hant"
                 lang="zh-Hant"
-              >中文</a>
+                >中文</a
+              >
               <span class="lang-sep" aria-hidden="true">|</span>
               <a class="lang" href="./en.html" hreflang="en">EN</a>
             </div>
@@ -66,9 +67,8 @@
           </p>
 
           <p class="lead">
-            把需求與模糊問題落成<span class="mark">
-              結構清晰、好維護</span
-            >的成果， <br />涵蓋 web & 後台系統與個人專案。
+            我解決問題<br /><span class="mark"> 【結構清晰、好維護】</span
+            >是我的目標， <br />專業涵蓋 web & 後台系統與個人專案。
             <br />
             你可以從 <a href="#projects">Projects</a> 看到更多。
           </p>
@@ -96,6 +96,29 @@
         </section>
       </div>
     </header>
+
+    <section class="bg-carousel" aria-hidden="true">
+      <div class="container">
+        <div class="bg-carousel-viewport">
+          <div class="bg-carousel-track">
+            <div class="bg-carousel-group">
+              <img src="./assets/slide-1.svg" alt="" />
+              <img src="./assets/slide-2.svg" alt="" />
+              <img src="./assets/slide-3.svg" alt="" />
+              <img src="./assets/slide-4.svg" alt="" />
+              <img src="./assets/slide-5.svg" alt="" />
+            </div>
+            <div class="bg-carousel-group">
+              <img src="./assets/slide-1.svg" alt="" />
+              <img src="./assets/slide-2.svg" alt="" />
+              <img src="./assets/slide-3.svg" alt="" />
+              <img src="./assets/slide-4.svg" alt="" />
+              <img src="./assets/slide-5.svg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <main class="container">
       <!-- Evidence / Projects（最重要） -->
@@ -291,22 +314,6 @@
       >EN</a
     >
 
-    <script>
-      document.getElementById("y").textContent = new Date().getFullYear();
-
-      (function () {
-        var loader = document.getElementById("page-loader");
-        var links = document.querySelectorAll("a.lang[href]");
-
-        links.forEach(function (link) {
-          if (link.classList.contains("current")) return;
-          link.addEventListener("click", function () {
-            if (!loader) return;
-            loader.classList.add("is-visible");
-            document.body.classList.add("is-loading");
-          });
-        });
-      })();
-    </script>
+    <script src="./main.js" defer></script>
   </body>
 </html>
