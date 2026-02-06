@@ -381,6 +381,8 @@ body.is-loading .lang-switch{
 .stack-showcase .container{
   max-width: min(1360px, calc(100vw - 56px));
   padding: 0 28px;
+  position: relative;
+  z-index: 1;
 }
 .stack-noise{
   position: absolute;
@@ -433,8 +435,8 @@ body.is-loading .lang-switch{
 }
 .stack-note{
   position: absolute;
-  top: var(--top, 0%);
-  left: calc(var(--left, 0%) + var(--stack-shift-x));
+  top: var(--active-top, var(--top, 0%));
+  left: calc(var(--active-left, var(--left, 0%)) + var(--stack-shift-x));
   width: clamp(128px, var(--w, 13vw), 240px);
   padding: 11px 12px 12px;
   border: 1px solid var(--note-line, rgba(0,0,0,.14));
@@ -443,15 +445,15 @@ body.is-loading .lang-switch{
   box-shadow: 0 10px 26px rgba(10,24,48,.14), 0 1px 0 rgba(255,255,255,.55) inset;
   backdrop-filter: blur(3px);
   transform: translate3d(0, 0, 0) rotate(var(--rot, 0deg));
-  transition: transform .24s ease, box-shadow .24s ease, filter .24s ease;
+  transition: transform .24s ease, box-shadow .24s ease, filter .24s ease, top 1.1s cubic-bezier(.2,.72,.26,1), left 1.1s cubic-bezier(.2,.72,.26,1);
+  will-change: transform, top, left;
   animation-name: stack-in, stack-float-a;
-  animation-duration: .86s, var(--float-dur, 10s);
+  animation-duration: var(--stack-in-dur, .9s), var(--float-dur, 10s);
   animation-timing-function: cubic-bezier(.2,.72,.26,1), ease-in-out;
   animation-delay: var(--delay, 0s), calc(var(--delay, 0s) + .86s);
   animation-fill-mode: both, both;
   animation-iteration-count: 1, infinite;
   animation-play-state: paused, paused;
-  z-index: var(--z, 6);
 }
 .stack-showcase.is-inview .stack-note{
   animation-play-state: running, running;
@@ -523,7 +525,7 @@ body.is-loading .lang-switch{
 @keyframes stack-in{
   from{
     opacity: 0;
-    transform: translate3d(0, 22px, 0) rotate(calc(var(--rot, 0deg) - 3deg)) scale(.96);
+    transform: translate3d(var(--from-x, 0px), var(--from-y, 22px), 0) rotate(calc(var(--rot, 0deg) - 3deg)) scale(.96);
     filter: blur(3px);
   }
   to{

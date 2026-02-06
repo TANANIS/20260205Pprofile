@@ -17,6 +17,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var headline = document.querySelector(".headline");
   var stackShowcase = document.querySelector(".stack-showcase");
+  var stackStage = stackShowcase
+    ? stackShowcase.querySelector(".stack-stage")
+    : null;
+  var stackNotes = stackStage
+    ? Array.prototype.slice.call(stackStage.querySelectorAll(".stack-note"))
+    : [];
+  var prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
+
+  function stackStageIsMobile() {
+    if (!stackStage) return true;
+    if (window.matchMedia("(max-width: 640px)").matches) return true;
+    var display = window.getComputedStyle(stackStage).display;
+    return display === "grid";
+  }
+
+  function scatterStackNotesWithinStage() {
+    if (!stackNotes.length || prefersReducedMotion.matches) return;
+    if (stackStageIsMobile()) return;
+    var stageRect = stackStage.getBoundingClientRect();
+    if (stageRect.width <= 1 || stageRect.height <= 1) return;
+
+    stackNotes.forEach(function (note) {
+      var noteWidth = note.offsetWidth || 0;
+      var noteHeight = note.offsetHeight || 0;
+      var maxLeft = Math.max(0, stageRect.width - noteWidth);
+      var maxTop = Math.max(0, stageRect.height - noteHeight);
+      var left = Math.random() * maxLeft;
+      var top = Math.random() * maxTop;
+      var leftPct = (left / stageRect.width) * 100;
+      var topPct = (top / stageRect.height) * 100;
+
+      note.style.setProperty("--active-left", leftPct.toFixed(2) + "%");
+      note.style.setProperty("--active-top", topPct.toFixed(2) + "%");
+    });
+  }
+
   if (stackShowcase) {
     if ("IntersectionObserver" in window) {
       var stackObserver = new IntersectionObserver(
@@ -33,6 +71,20 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       stackShowcase.classList.add("is-inview");
     }
+
+    var lastScatter = 0;
+    window.addEventListener(
+      "wheel",
+      function () {
+        if (prefersReducedMotion.matches) return;
+        if (stackStageIsMobile()) return;
+        var now = Date.now();
+        if (now - lastScatter < 220) return;
+        lastScatter = now;
+        window.requestAnimationFrame(scatterStackNotesWithinStage);
+      },
+      { passive: true }
+    );
   }
   if (!headline) return;
 
